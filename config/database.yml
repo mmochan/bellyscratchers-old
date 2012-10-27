@@ -15,9 +15,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: backscratchers_development
+  database: bellycratchers_development
   pool: 5
-  username: backscratchers
+  username: bellyscratchers
   password: changeit
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -41,15 +41,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: backscratchers_test
+  database: bellscratchers_test
   pool: 5
-  username: backscratchers
+  username: bellyscratchers
   password: changeit
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: backscratchers_production
+  database: bellyscratchers_production
   pool: 5
-  username: backscratchers
+  username: bellycratchers
   password: changeit
