@@ -1,4 +1,6 @@
 Bellyscratchers::Application.routes.draw do  
+  devise_for :users
+
   resources :landings
 
   root :to => 'landings#index'
