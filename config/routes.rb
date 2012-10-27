@@ -1,6 +1,4 @@
-Backscratchers::Application.routes.draw do
-  resources :posts
-  
+Bellyscratchers::Application.routes.draw do  
   root :to => 'posts#index'
 
   # The priority is based upon order of creation:
