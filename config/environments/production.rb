@@ -51,7 +51,7 @@ Bellyscratchers::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
   
-  onfig.assets.initialize_on_precompile = false
+  config.assets.initialize_on_precompile = false
 
   # Enable threaded mode
   # config.threadsafe!
