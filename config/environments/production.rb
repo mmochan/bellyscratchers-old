@@ -53,6 +53,7 @@ Bellyscratchers::Application.configure do
   
   config.assets.initialize_on_precompile = false
 
+
   # Enable threaded mode
   # config.threadsafe!
 
