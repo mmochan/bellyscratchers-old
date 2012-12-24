@@ -1,8 +1,4 @@
 Bellyscratchers::Application.routes.draw do  
-  devise_for :users
-
-  resources :landings
-
   root :to => 'landings#index'
 
   # The priority is based upon order of creation:
