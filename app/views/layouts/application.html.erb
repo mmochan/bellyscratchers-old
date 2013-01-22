@@ -18,12 +18,9 @@
         <div class="navbar-content">
           <ul class="nav">
             <li class="active">
-              <a href="#">Home</a> 
+             <li><%= link_to "Home", homepage_index_path %> <li>
             </li>
-            <li>
-              <a href="#">Book a Hammock</a> 
-            </li>            
-            <li>
+            <li><%= link_to "Booking", new_booking_path %> <li>
               <a href="#">Photo Gallery</a> 
             </li>
             <li>
@@ -40,45 +37,8 @@
       </div>
     </div>
   </div>
-  <div class="container">      
-    <%=image_tag("belly2-01.jpg", :width =>"350", :height => "150", :class => "pull-left")%>   
-    <div class="hero-unit pull-right">
-      <h1>BellyScratchers</h1>
-      <br />
-      <p>An Exclusive Dog Retreat. Some blurb about the company
-         <br />the professional service. What a great place it would be
-         <br /> to send your dog. Value for money. How much fun the 
-         <br /> dogs will have when they come and stay etc etc</p>
-    </div>
-  </div>
   <div class="container">    
-    <div class="row main-features">
-      
-      <div class="span4">
-        <div class="well">
-          <h3>Book a Hammock</h3>
-          <p>Yes I'd love to come and stay. Heard so many good things.</p>
-          <a class="btn btn-info" href="#"><span class="btn-label">Let's do it</span></a> 
-        </div>
-      </div>
-            
-      <div class="span4">
-        <div class="well">
-          <h3>Resort Location</h3>
-          <p>Located to the North of Brisbane with easy access everywhere. </p>
-          <a class="btn btn-primary" href="#"><span class="btn-label">Find Out More</span></a> 
-        </div>
-      </div>
-      <div class="span4">
-        <div class="well">
-          <h3>Mailing&nbsp;List</h3>
-          <p>Sign up for our monthly mailing list to keep up to date.</p>
-          <a class="btn btn-success" href="#"><span class="btn-label">Find Out More</span></a> 
-        </div>
-      </div>
-    </div>
+    <%= yield %>
   </div>
-<%= yield %>
-
 </body>
 </html>

@@ -1,4 +1,7 @@
 Bellyscratchers::Application.routes.draw do  
+  resources :bookings
+
+
   get "homepage/index"
 
   root :to => 'homepage#index'
