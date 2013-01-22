@@ -32,6 +32,11 @@ gem 'simple_form'
 group :development do
   gem 'irbtools'
   gem 'pry'
+  gem 'guard-rspec'
+  gem 'growl'
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
 end
 
 group :test, :development do
