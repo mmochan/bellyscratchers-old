@@ -4,11 +4,10 @@
   <title>BellyScratchers</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-  
+
   <%= stylesheet_link_tag    "application", "bootstrap-responsive", 'bootstrap.min', 'divshot-util', 'cloudfront.css', :media => "all" %>
   <%= javascript_include_tag "application", 'bootstrap.min' %>
   <%= csrf_meta_tags %>
-    
 </head>
 <body>
   <div class="navbar">
@@ -18,7 +17,7 @@
         <div class="navbar-content">
           <ul class="nav">
             <li class="active">
-             <li><%= link_to "Home", homepage_index_path %> <li>
+             <li><%= link_to "Home", pages_path %> <li>
             </li>
             <li><%= link_to "Booking", new_booking_path %> <li>
               <a href="#">Photo Gallery</a> 

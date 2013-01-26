@@ -11,5 +11,6 @@ require 'spec_helper'
 #   end
 # end
 describe BookingsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+ it "TBD" do
+ end
 end

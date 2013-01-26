@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Booking do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "Manages the bookings" do
+
+  end
 end

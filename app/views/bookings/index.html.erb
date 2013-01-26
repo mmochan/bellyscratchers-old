@@ -4,8 +4,11 @@
   <tr>
     <th>Name</th>
     <th>Address</th>
-    <th>Mobile</th>
-    <th>Date</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Contact number</th>
+    <th>Email</th>
+    <th>Dog count</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,8 +18,11 @@
   <tr>
     <td><%= booking.name %></td>
     <td><%= booking.address %></td>
-    <td><%= booking.mobile %></td>
-    <td><%= booking.date %></td>
+    <td><%= booking.start_date %></td>
+    <td><%= booking.end_date %></td>
+    <td><%= booking.contact_number %></td>
+    <td><%= booking.email %></td>
+    <td><%= booking.dog_count %></td>
     <td><%= link_to 'Show', booking %></td>
     <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
     <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,4 +32,4 @@
 
 <br />
 
-<%= link_to 'New booking', new_booking_path %>
+<%= link_to 'New Booking', new_booking_path %>

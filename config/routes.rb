@@ -2,9 +2,9 @@ Bellyscratchers::Application.routes.draw do
   resources :bookings
 
 
-  get "homepage/index"
+  get "pages/index" => 'pages#index', as: :pages
 
-  root :to => 'homepage#index'
+  root :to => 'pages#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -4,9 +4,10 @@ describe "bookings/show" do
   before(:each) do
     @booking = assign(:booking, stub_model(Booking,
       :name => "Name",
-      :address => "Address",
-      :mobile => "Mobile",
-      :date => "Date"
+      :address => "MyText",
+      :contact_number => "Contact Number",
+      :email => "Email",
+      :dog_count => "Dog Count"
     ))
   end
 
@@ -14,8 +15,9 @@ describe "bookings/show" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Name/)
-    rendered.should match(/Address/)
-    rendered.should match(/Mobile/)
-    rendered.should match(/Date/)
+    rendered.should match(/MyText/)
+    rendered.should match(/Contact Number/)
+    rendered.should match(/Email/)
+    rendered.should match(/Dog Count/)
   end
 end
