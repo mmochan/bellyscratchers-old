@@ -17,15 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :address %><br />
-    <%= f.text_area :address %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date %><br />
-    <%= f.date_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br />
-    <%= f.date_select :end_date %>
+    <%= f.text_area :address, :size => "10x10" %>
   </div>
   <div class="field">
     <%= f.label :contact_number %><br />
@@ -36,10 +28,21 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :dog_count %><br />
+    <%= f.label "Check-in Date" %><br />
+    <%= f.date_select :start_date, :start_year => 2013, :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' } %>
+  </div>
+  <div class="field">
+    <%= f.label "Check-out Date" %><br />
+    <%= f.date_select :end_date, :start_year => 2013, :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' } %>
+  </div>
+  <div class="field">
+    <%= f.label "Number of Guests" %><br />
     <%= number_field("booking", "dog_count", :value =>1)%>
   </div>
+  <div class="field">
+    <%= f.label "Chauffeur services" %><br />
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Next" %>
   </div>
 <% end %>
