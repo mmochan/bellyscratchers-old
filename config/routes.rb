@@ -1,4 +1,7 @@
 Bellyscratchers::Application.routes.draw do  
+  resources :customers
+
+
   resources :bookings
 
 

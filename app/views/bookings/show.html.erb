@@ -12,17 +12,17 @@
 
 <p>
   <b>Start date:</b>
-  <%= @booking.start_date %>
+  <%= @booking.dropoff_date %>
 </p>
 
 <p>
   <b>End date:</b>
-  <%= @booking.end_date %>
+  <%= @booking.pickup_date %>
 </p>
 
 <p>
   <b>Contact number:</b>
-  <%= @booking.contact_number %>
+  <%= @booking.phone %>
 </p>
 
 <p>
@@ -34,6 +34,13 @@
   <b>Attendees:</b>
   <%= @booking.dog_count %>
 </p>
+
+
+<p>
+  <b>Pickup Required:</b>
+  <%= @booking.pickup_required %>
+</p>
+
 
 
 <%= link_to 'Edit', edit_booking_path(@booking) %> |

@@ -3,11 +3,12 @@ class CreateBookings < ActiveRecord::Migration
     create_table :bookings do |t|
       t.string :name
       t.text :address
-      t.date :start_date
-      t.date :end_date
-      t.string :contact_number
+      t.string :phone
       t.string :email
-      t.string :dog_count
+      t.date :dropoff_date
+      t.date :pickup_date
+      t.integer :dog_count
+      t.boolean :pickup_required, :default => false
 
       t.timestamps
     end

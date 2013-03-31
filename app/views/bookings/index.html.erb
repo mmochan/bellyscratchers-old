@@ -4,11 +4,12 @@
   <tr>
     <th>Name</th>
     <th>Address</th>
-    <th>Start date</th>
-    <th>End date</th>
-    <th>Contact number</th>
+    <th>Drop-off date</th>
+    <th>Pickup date</th>
+    <th>Phone</th>
     <th>Email</th>
-    <th>Attendees</th>
+    <th>How Many</th>
+    <th>Pickup</th>    
     <th></th>
     <th></th>
     <th></th>
@@ -18,11 +19,12 @@
   <tr>
     <td><%= booking.name %></td>
     <td><%= booking.address %></td>
-    <td><%= booking.start_date %></td>
-    <td><%= booking.end_date %></td>
-    <td><%= booking.contact_number %></td>
+    <td><%= booking.dropoff_date %></td>
+    <td><%= booking.pickup_date %></td>
+    <td><%= booking.phone %></td>
     <td><%= booking.email %></td>
     <td><%= booking.dog_count %></td>
+    <td><%= booking.pickup_required %></td>    
     <td><%= link_to 'Show', booking %></td>
     <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
     <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>

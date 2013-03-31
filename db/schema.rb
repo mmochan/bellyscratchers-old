@@ -11,18 +11,41 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130126070426) do
+ActiveRecord::Schema.define(:version => 20130331051946) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "line1"
+    t.string   "line2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "post_code"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "addresses", ["addressable_type", "addressable_id"], :name => "index_addresses_on_addressable_type_and_addressable_id", :unique => true
 
   create_table "bookings", :force => true do |t|
     t.string   "name"
     t.text     "address"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.string   "contact_number"
+    t.string   "phone"
     t.string   "email"
-    t.string   "dog_count"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.date     "dropoff_date"
+    t.date     "pickup_date"
+    t.integer  "dog_count"
+    t.boolean  "pickup_required", :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "customers", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
