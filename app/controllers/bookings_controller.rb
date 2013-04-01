@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
+  before_filter :authenticate_customer!  
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where("customer_id = #{current_customer.id}")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,6 +42,9 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.new(params[:booking])
+    @booking.customer_id = current_customer.id
+
+
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }

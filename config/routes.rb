@@ -1,9 +1,9 @@
 Bellyscratchers::Application.routes.draw do  
-  resources :customers
+  
+  devise_for :customers
 
-
+  resources :customers 
   resources :bookings
-
 
   get "pages/index" => 'pages#index', as: :pages
 

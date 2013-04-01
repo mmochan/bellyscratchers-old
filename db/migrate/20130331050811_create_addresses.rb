@@ -8,10 +8,8 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :post_code
       t.integer :addressable_id
       t.string :addressable_type      
-
       t.timestamps
     end
-
     add_index :addresses, [:addressable_type, :addressable_id], :unique => true
   end
 end

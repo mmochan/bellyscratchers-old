@@ -24,10 +24,7 @@ describe BookingsController do
   # Booking. As you add validations to Booking, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "name" => "Mike Mochan", "address" => "443 Mt Glorious Road",
-      "start_date" => "23/01/2013", "end_date" => "01/02/2013",
-      "contact_number" => "0411815602", 
-      "email" => "mmochan@mac.com", "dog_count" => 1 }
+    { "start_date" => "23/01/2013", "end_date" => "01/02/2013", "dog_count" => 1, "pickup_required" => 1 }
   end
 
   # This should return the minimal set of values that should be in the session

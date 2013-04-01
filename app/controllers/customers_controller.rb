@@ -25,7 +25,9 @@ class CustomersController < ApplicationController
   # GET /customers/new.json
   def new
     @customer = Customer.new
-    @customer.build_address
+    @customer.build_address   # Probably not needed here
+
+    #@customer.build_bookings
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,7 +44,6 @@ class CustomersController < ApplicationController
   # POST /customers.json
   def create
     @customer = Customer.new(params[:customer])
-
     respond_to do |format|
       if @customer.save
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
@@ -58,7 +59,6 @@ class CustomersController < ApplicationController
   # PUT /customers/1.json
   def update
     @customer = Customer.find(params[:id])
-
     respond_to do |format|
       if @customer.update_attributes(params[:customer])
         format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }

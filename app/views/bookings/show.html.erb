@@ -1,40 +1,20 @@
 <p id="notice"><%= notice %></p>
+<div class='form-horizontal'>
 
 <p>
-  <b>Name:</b>
-  <%= @booking.name %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @booking.address %>
-</p>
-
-<p>
-  <b>Start date:</b>
+  <b>Dropoff date:</b>
   <%= @booking.dropoff_date %>
 </p>
 
 <p>
-  <b>End date:</b>
+  <b>Pickup date:</b>
   <%= @booking.pickup_date %>
 </p>
 
 <p>
-  <b>Contact number:</b>
-  <%= @booking.phone %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @booking.email %>
-</p>
-
-<p>
-  <b>Attendees:</b>
+  <b>Visitors:</b>
   <%= @booking.dog_count %>
 </p>
-
 
 <p>
   <b>Pickup Required:</b>
@@ -43,5 +23,6 @@
 
 
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Edit', edit_booking_path %> |
 <%= link_to 'Back', bookings_path %>
+</div>

@@ -5,27 +5,20 @@ describe Booking do
     @booking = Booking.new
   end
 
-  it "must have a name" do
-   @booking.should have(1).error_on(:name)
+
+  it "must have a dropoff_date" do
+   @booking.should have("2013-03-31").error_on(:dropoff_date)
   end
 
-  it "must have an address" do
-   @booking.should have(1).error_on(:address)
-  end
-
-  it "must have a start_date" do
-   @booking.should have(1).error_on(:start_date)
-  end
-
-  it "must have a end_date" do
-    @booking.should have(1).error_on(:end_date)
-  end
-
-  it "must have a contact_number" do
-    @booking.should have(1).error_on(:contact_number)
+  it "must have a pickup_date" do
+    @booking.should have("2013-03-31").error_on(:pickup_date)
   end
 
   it "must have a dog_count" do
     @booking.should have(1).error_on(:dog_count)
   end
+
+  it "must have a pickup_required" do
+    @booking.should have("true").error_on(:pickup_required)
+  end  
 end

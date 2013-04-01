@@ -17,10 +17,12 @@
         <div class="navbar-content">
           <ul class="nav">
             <li class="active">
-             <li><%= link_to "Home", pages_path %> <li>
+             <li><%= link_to "Home", pages_path %></li>
             </li>
-            <li><%= link_to "Booking", new_booking_path %> <li>
-              <a href="#">Photo Gallery</a> 
+             <% if customer_signed_in? %>
+            <li><%= link_to "My Bookings", bookings_path %></li>
+             <% end %>
+              <li><a href="#">Photo Gallery</a> </li>
             </li>
             <li>
               <a href="#">Pricing</a> 
@@ -30,7 +32,17 @@
             </li>
             <li>
               <a href="#">About</a> 
-            </li>
+            </li>  
+            <li><span>
+              <% if customer_signed_in? %>
+                Logged in as <strong><%= current_customer.email %></strong>.
+                <%= link_to 'Edit profile', edit_customer_registration_path%>
+                <%= link_to 'Logout', destroy_customer_session_path, method: :delete %>
+              <% else %>
+                <%= link_to 'Sign up', new_customer_registration_path%>
+                <%= link_to 'Login', new_customer_session_path%>
+              <% end %>
+            </span></li>
           </ul>
         </div>
       </div>
