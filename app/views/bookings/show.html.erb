@@ -21,8 +21,13 @@
   <%= @booking.pickup_required %>
 </p>
 
+<% if current_customer.address == nil %>
+<p> No address on record </p>
+<%= link_to 'Add my address', add_address_to_customer_path(current_customer) %> 
+<% else %>
 
 
 <%= link_to 'Edit', edit_booking_path %> |
 <%= link_to 'Back', bookings_path %>
+<% end %>
 </div>

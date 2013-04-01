@@ -26,7 +26,7 @@ class CustomersController < ApplicationController
   def new
     @customer = Customer.new
 
-    #@customer.build_bookings
+    #@customer.build_address
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,10 +34,16 @@ class CustomersController < ApplicationController
     end
   end
 
-  # GET /customers/1/edit
-  def edit
+  def add_address_to
     @customer = Customer.find(params[:id])
+    @customer.build_address
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @customer }
+    end    
   end
+
 
   # POST /customers
   # POST /customers.json

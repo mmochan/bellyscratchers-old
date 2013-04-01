@@ -15,6 +15,28 @@
   <%= @customer.phone %>
 </p>
 
+<p>
+  <b>Line1:</b>
+  <%= @customer.address.line1 %>
+</p>
+<p>
+  <b>Line2:</b>
+  <%= @customer.address.line2 %>
+</p>
+<p>
+  <b>City:</b>
+  <%= @customer.address.city %>
+</p>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<p>
+  <b>State:</b>
+  <%= @customer.address.state %>
+</p>
+<p>
+  <b>Postcode:</b>
+  <%= @customer.address.post_code %>
+</p>
+
+
+<%= link_to 'Edit', add_address_to_customer_path(@customer) %> |
+<%= link_to 'Back', bookings_path %>

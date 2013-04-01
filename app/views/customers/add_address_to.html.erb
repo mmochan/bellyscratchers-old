@@ -1,0 +1,17 @@
+<%= simple_form_for(@customer, :html => {:class => 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+	  <%= f.simple_fields_for :address do |address| %>
+	    <%= render :partial => 'shared/address', :locals => {:f => address} %>
+	  <% end %>
+
+  </div>
+  	<%= f.error :base %>
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_booking_path %> |
+<%= link_to 'Back', bookings_path %>
