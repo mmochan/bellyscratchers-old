@@ -25,7 +25,6 @@ class CustomersController < ApplicationController
   # GET /customers/new.json
   def new
     @customer = Customer.new
-    @customer.build_address   # Probably not needed here
 
     #@customer.build_bookings
 
