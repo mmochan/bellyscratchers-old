@@ -3,10 +3,13 @@ Bellyscratchers::Application.routes.draw do
   devise_for :customers
 
   resources :customers do 
+    resources :pets
     member do 
       get 'add_address_to'
     end
   end
+  resources :pets
+
 
   resources :bookings
 

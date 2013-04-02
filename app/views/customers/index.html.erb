@@ -41,7 +41,7 @@
   </tbody>
 <% end %>
 </table>
-<h1>Your Pets</h1>
+<h1>My Pets</h1>
 <table class="table table-striped table-hover table-bordered">
   <thead>
     <tr>
@@ -52,8 +52,45 @@
       <th>Dietry requirements</th>                    
     </tr>
   </thead>
-
+<% @customers.each do |customer| %>
+  <% customer.pets.each do |pet| %>
+    <tbody>
+      <tr>
+        <td><%= pet.name %></td>
+        <td><%= pet.description %></td>
+        <td><%= pet.age %></td>
+        <td><%= pet.special_notes %></td>
+        <td><%= pet.dietry_requirements %></td>           
+      </tr>
+    </tbody>
+  <% end %>
+<% end %>
+</table>
+<%= link_to 'Add Pet', new_customer_pet_path(current_customer), :class => "btn btn-primary"%>
+<br />
+<h1>My Bookings</h1>
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Drop-off date</th>
+      <th>Pickup date</th>
+      <th>How Many</th>
+      <th>Pickup</th>                 
+    </tr>
+  </thead>
+<% @customers.each do |customer| %>
+  <% customer.bookings.each do |booking| %>
+    <tbody>
+      <tr>
+        <td><%= booking.dropoff_date %></td>
+        <td><%= booking.pickup_date %></td>
+        <td><%= booking.dog_count %></td>
+        <td><%= booking.pickup_required %></td>         
+      </tr>
+    </tbody>
+  <% end %>
+<% end %>
 </table>
 <br />
 
-<%= link_to 'My Bookings', bookings_path, :class => "btn btn-primary"%>
+<%= link_to 'New Booking', new_booking_path, :class => "btn btn-primary"%>

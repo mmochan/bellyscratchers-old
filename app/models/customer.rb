@@ -9,6 +9,7 @@ class Customer < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 	has_one :address, :as => :addressable
 	has_many :bookings#, :as => :bookable
+  has_many :pets
 
 	accepts_nested_attributes_for :address
 

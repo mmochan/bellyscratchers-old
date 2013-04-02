@@ -22,6 +22,9 @@
              <% if customer_signed_in? %>
             <li><%= link_to "My Bookings", bookings_path %></li>
              <% end %>
+             <% if customer_signed_in? %>
+            <li><%= link_to "My Details", customers_path %></li>
+             <% end %>             
               <li><a href="#">Photo Gallery</a> </li>
             </li>
             <li>

@@ -42,9 +42,8 @@ class CustomersController < ApplicationController
       format.html # new.html.erb
       format.json { render json: @customer }
     end    
-  end
-
-
+  end  
+  
   # POST /customers
   # POST /customers.json
   def create
