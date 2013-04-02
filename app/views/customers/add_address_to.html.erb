@@ -2,7 +2,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-
+    <%= f.input :name%><br />
+    <%= f.input :phone%><br />
 	  <%= f.simple_fields_for :address do |address| %>
 	    <%= render :partial => 'shared/address', :locals => {:f => address} %>
 	  <% end %>
