@@ -1,29 +1,47 @@
-<h1>Your bookings</h1>
+<h1>Your details</h1>
 
-<table>
-  <tr>
-    <th>Dropoff Date</th>
-    <th>Pickup Date</th>
-    <th>No. Visitors</th>
-    <th>Pickup required</th>    
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+    </tr>
+  </thead>
 <% @customers.each do |customer| %>
-  <tr>
-    <td><%= customer.booking.dropoff_date%></td>
-    <td><%= customer.booking.pickup_date%></td>
-    <td><%= customer.booking.dog_count%></td>
-    <td><%= customer.booking.pickup_required%></td>
-    <td><%= link_to 'Show', customer %></td>
-    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-    <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td><%= customer.name%></td>
+      <td><%= customer.phone%></td>
+      <td><%= customer.email%></td>
+    </tr>
+  </tbody>
+<% end %>
+</table>
+<h1>Your Address</h1>
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Line1</th>
+      <th>Line2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Postcode</th>              
+    </tr>
+  </thead>
+<% @customers.each do |customer| %>
+  <tbody>
+    <tr>
+      <td><%= customer.address.line1%></td>
+      <td><%= customer.address.line2%></td>
+      <td><%= customer.address.city%></td>
+      <td><%= customer.address.state%></td>
+      <td><%= customer.address.post_code%></td>            
+    </tr>
+  </tbody>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Booking', new_customer_path %>
+<%= link_to 'My Bookings', bookings_path, :class => "btn btn-primary"%>

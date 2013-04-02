@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <b>Name:</b>
@@ -38,5 +38,5 @@
 </p>
 
 
-<%= link_to 'Edit', add_address_to_customer_path(@customer) %> |
-<%= link_to 'Back', bookings_path %>
+<%= link_to 'Edit', add_address_to_customer_path(@customer), :class => "btn btn-success" %> |
+<%= link_to 'Back', bookings_path, :class => "btn btn-primary" %>

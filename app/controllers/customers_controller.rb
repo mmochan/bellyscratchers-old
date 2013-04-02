@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    @customers = Customer.where("id = #{current_customer.id}")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -51,7 +51,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(params[:customer])
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+        format.html { redirect_to @customer, notice: 'Customer successfully created.' }
         format.json { render json: @customer, status: :created, location: @customer }
       else
         format.html { render action: "new" }
@@ -66,7 +66,7 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     respond_to do |format|
       if @customer.update_attributes(params[:customer])
-        format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
+        format.html { redirect_to @customer, notice: 'Customer profile was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

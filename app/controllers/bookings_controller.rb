@@ -63,7 +63,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.update_attributes(params[:booking])
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
+        format.html { redirect_to @booking, notice: "Booking was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

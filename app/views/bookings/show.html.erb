@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 <div class='well'>
 
 <p>
@@ -22,12 +22,12 @@
 </p>
 
 <% if current_customer.address == nil %>
-<p> No address on record </p>
-<%= link_to 'Add my address', add_address_to_customer_path(current_customer) %> 
+<br />
+<string><p>We don't appear to have your contact details for this booking</p></string>
+<%= link_to 'Add my details', add_address_to_customer_path(current_customer), :class => "btn btn-success" %> 
 <% else %>
 
-
-<%= link_to 'Edit', edit_booking_path %> |
-<%= link_to 'Back', bookings_path %>
+<%= link_to 'Edit', edit_booking_path, :class => "btn btn-success" %> |
+<%= link_to 'Back', bookings_path, :class => "btn btn-primary" %>
 <% end %>
 </div>
