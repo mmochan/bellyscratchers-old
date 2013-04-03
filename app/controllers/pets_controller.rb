@@ -2,12 +2,12 @@ class PetsController < ApplicationController
 
 	def new
 		@customer = current_customer
-    @pet = @customer.pets.new
+    @pet = Pet.new
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @pet }
-    end  
+    end
   end
 
   def show

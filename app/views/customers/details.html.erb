@@ -66,28 +66,28 @@
 </table>
 <%= link_to 'Add Pet', new_customer_pet_path(current_customer), :class => "btn btn-primary"%>
 <br />
-<h1>My Bookings</h1>
-<table class="table table-striped table-hover table-bordered">
-  <thead>
-    <tr>
-      <th>Drop-off date</th>
-      <th>Pickup date</th>
-      <th>How Many</th>
-      <th>Pickup</th>                 
-    </tr>
-  </thead>
-  <% @customer.bookings.each do |booking| %>
-    <tbody>
-      <tr>
-        <td><%= booking.dropoff_date %></td>
-        <td><%= booking.pickup_date %></td>
-        <td><%= booking.dog_count %></td>
-        <td><%= booking.pickup_required %></td>         
-      </tr>
-    </tbody>
-  <% end %>
-
-</table>
-<br />
-
-<%= link_to 'New Booking', new_booking_path, :class => "btn btn-primary"%>
+<% unless @customer.pets.empty? %>
+	<h1>My Bookings</h1>
+	<table class="table table-striped table-hover table-bordered">
+	  <thead>
+	    <tr>
+	      <th>Drop-off date</th>
+	      <th>Pickup date</th>
+	      <th>How Many</th>
+	      <th>Pickup</th>                 
+	    </tr>
+	  </thead>
+	  <% @customer.bookings.each do |booking| %>
+	    <tbody>
+	      <tr>
+	        <td><%= booking.dropoff_date %></td>
+	        <td><%= booking.pickup_date %></td>
+	        <td><%= booking.dog_count %></td>
+	        <td><%= booking.pickup_required %></td>         
+	      </tr>
+	    </tbody>
+	  <% end %>
+	</table>
+	<br />
+	<%= link_to 'New Booking', new_booking_path, :class => "btn btn-primary"%>
+<% end %>

@@ -26,10 +26,14 @@ class BookingsController < ApplicationController
   # GET /bookings/new.json
   def new
     @booking = Booking.new
+    if current_customer.pets.empty?
+      redirect_to add_pet_to_customer_path(current_customer)
+    else
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @booking }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @booking }
+      end
     end
   end
 

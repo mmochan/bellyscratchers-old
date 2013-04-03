@@ -6,7 +6,11 @@ Bellyscratchers::Application.routes.draw do
     resources :pets
     member do 
       get 'add_address_to'
+      get 'add_pet_to'      
       get 'details'
+    end
+    collection do 
+      get 'update_details_for'
     end
   end
   resources :pets

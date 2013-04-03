@@ -22,6 +22,18 @@ class CustomersController < ApplicationController
     end
   end
 
+  def update_details_for
+    @customer = Customer.find(current_customer)
+    if @customer.address.nil?
+      redirect_to add_address_to_customer_path(@customer)
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @customers }
+      end
+    end
+  end
+
   # GET /customers/1
   # GET /customers/1.json
   def show
