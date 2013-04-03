@@ -2,11 +2,23 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.where("id = #{current_customer.id}")
+    @customer = Customer.find(current_customer)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @customers }
+    end
+  end
+
+  def details
+    @customer = Customer.find(current_customer)
+    if @customer.address.nil?
+      redirect_to add_address_to_customer_path(@customer)
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @customers }
+      end
     end
   end
 

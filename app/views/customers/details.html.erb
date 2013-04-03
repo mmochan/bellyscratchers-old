@@ -8,15 +8,14 @@
       <th>Email</th>
     </tr>
   </thead>
-<% @customer.each do |customer| %>
   <tbody>
     <tr>
-      <td><%= customer.name%></td>
-      <td><%= customer.phone%></td>
-      <td><%= customer.email%></td>
+      <td><%= @customer.name%></td>
+      <td><%= @customer.phone%></td>
+      <td><%= @customer.email%></td>
     </tr>
   </tbody>
-<% end %>
+
 </table>
 
 <h1>Address details</h1>
@@ -30,17 +29,17 @@
       <th>Postcode</th>              
     </tr>
   </thead>
-<% @customer.each do |customer| %>
+
   <tbody>
     <tr>
-      <td><%= customer.address.line1%></td>
-      <td><%= customer.address.line2%></td>
-      <td><%= customer.address.city%></td>
-      <td><%= customer.address.state%></td>
-      <td><%= customer.address.post_code%></td>            
+      <td><%= @customer.address.line1%></td>
+      <td><%= @customer.address.line2%></td>
+      <td><%= @customer.address.city%></td>
+      <td><%= @customer.address.state%></td>
+      <td><%= @customer.address.post_code%></td>            
     </tr>
   </tbody>
-<% end %>
+
 </table>
 <h1>My Pets</h1>
 <table class="table table-striped table-hover table-bordered">
@@ -53,8 +52,7 @@
       <th>Dietry requirements</th>                    
     </tr>
   </thead>
-<% @customer.each do |customer| %>
-  <% customer.pets.each do |pet| %>
+  <% @customer.pets.each do |pet| %>
     <tbody>
       <tr>
         <td><%= pet.name %></td>
@@ -65,7 +63,6 @@
       </tr>
     </tbody>
   <% end %>
-<% end %>
 </table>
 <%= link_to 'Add Pet', new_customer_pet_path(current_customer), :class => "btn btn-primary"%>
 <br />
@@ -79,8 +76,7 @@
       <th>Pickup</th>                 
     </tr>
   </thead>
-<% @customers.each do |customer| %>
-  <% customer.bookings.each do |booking| %>
+  <% @customer.bookings.each do |booking| %>
     <tbody>
       <tr>
         <td><%= booking.dropoff_date %></td>
@@ -90,7 +86,7 @@
       </tr>
     </tbody>
   <% end %>
-<% end %>
+
 </table>
 <br />
 
