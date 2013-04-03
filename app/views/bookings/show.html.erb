@@ -28,6 +28,6 @@
 <% else %>
 
 <%= link_to 'Edit', edit_booking_path, :class => "btn btn-success" %> |
-<%= link_to 'Back', customers_path, :class => "btn btn-primary" %>
+<%= link_to 'Back', details_customer_path(current_customer), :class => "btn btn-primary" %>
 <% end %>
 </div>

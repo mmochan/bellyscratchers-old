@@ -7,9 +7,9 @@ class Customer < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-	has_one :address, :as => :addressable
-	has_many :bookings#, :as => :bookable
-  has_many :pets
+	has_one :address, :as => :addressable, :dependent => :destroy
+	has_many :bookings, :dependent => :destroy    #, :as => :bookable
+  has_many :pets, :dependent => :destroy
 
 	accepts_nested_attributes_for :address
 
