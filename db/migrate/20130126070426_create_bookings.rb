@@ -3,8 +3,8 @@ class CreateBookings < ActiveRecord::Migration
     create_table :bookings do |t|
       t.date :checkin
       t.date :checkout
-      t.string_array  :guests
-      t.boolean :collect, :default => false
+      t.string_array :guests
+      t.boolean :collection, :default => false
       t.integer :customer_id
       #t.string :bookable_type 
 
