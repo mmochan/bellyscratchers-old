@@ -4,11 +4,11 @@
   <div class="form-inputs">
 
 
-<%= f.input :dropoff_date, as: :datepicker %><br />
-<%= f.input :pickup_date, as: :datepicker %><br />
+<%= f.input :dropoff_date, label: "Check-in", as: :datepicker %><br />
+<%= f.input :pickup_date, label: "Check-out", as: :datepicker %><br />
 
-<%= f.input :visitors,as: :check_boxes, collection: current_customer.pets, value_method: :name, include_blank: "Test", hint: 'Whose coming?'  %><br />
-<%= f.input :pickup_required, as: :radio_buttons, hint: 'Does Fido need do be picked up? ' %><br />
+<%= f.input :visitors, label: "Guests", as: :check_boxes, collection: current_customer.pets, value_method: :name, include_blank: "Test" %><br />
+<%= f.input :pickup_required, label: "Collection", as: :radio_buttons, hint: 'Does Fido need do be picked up? ' %><br />
 
   </div>
     <%= f.error :base %>

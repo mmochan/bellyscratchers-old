@@ -2,24 +2,24 @@
 <div class='well'>
 
 <p>
-  <b>Dropoff date:</b>
+  <b>Check-out:</b>
   <%= @booking.dropoff_date %>
 </p>
 
 <p>
-  <b>Pickup date:</b>
+  <b>Check-in:</b>
   <%= @booking.pickup_date %>
 </p>
 
 <p>
-  <b>Visitors:</b>
+  <b>Guests:</b>
   <% @booking.visitors.each do |visitor| %>
  		<%= visitor unless visitor.empty?%>
   <% end %>
 </p>
 
 <p>
-  <b>Pickup Required:</b>
+  <b>Collection:</b>
   <%= @booking.pickup_required %>
 </p>
 
@@ -30,8 +30,8 @@
 <%= link_to 'Add my details', add_address_to_customer_path(current_customer), :class => "btn btn-success" %> 
 <% else %>
 
-<%= link_to 'Edit', edit_booking_path, :class => "btn btn-success" %> |
-<%= link_to 'Continue', details_customer_path(current_customer), :class => "btn btn-primary" %>
+<%= link_to 'Edit', edit_booking_path, :class => "btn btn-success" %>
+<%= link_to 'Confirm', details_customer_path(current_customer), :class => "btn btn-primary" %>
 </div>
 <% end %>
 
