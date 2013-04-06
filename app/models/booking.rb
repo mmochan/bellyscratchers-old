@@ -27,6 +27,5 @@ class Booking < ActiveRecord::Base
 
   def dogs
   	errors.add(:visitors, "Surely one of them is coming?") if self.visitors[0].empty?
-  	
   end
 end
