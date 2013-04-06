@@ -1,27 +1,30 @@
-<p>
-  <b>Name:</b>
-  <%= @pet.name %>
-</p>
+<div class='well'>
+  <p>
+    <b>Name:</b>
+    <%= @pet.name %>
+  </p>
 
-<p>
-  <b>Description:</b>
-  <%= @pet.description %>
-</p>
+  <p>
+    <b>Description:</b>
+    <%= @pet.description %>
+  </p>
 
-<p>
-  <b>Age:</b>
-  <%= @pet.age %>
-</p>
+  <p>
+    <b>Age:</b>
+    <%= @pet.age %>
+  </p>
 
-<p>
-  <b>Special Notes:</b>
-  <%= @pet.special_notes %>
-</p>
-<p>
-  <b>Dietry Requirements:</b>
-  <%= @pet.dietry_requirements %>
-</p>
+  <p>
+    <b>Special Notes:</b>
+    <%= @pet.special_notes %>
+  </p>
+  <p>
+    <b>Dietry Requirements:</b>
+    <%= @pet.dietry_requirements %>
+  </p>
 
 
+</div>
+    <%= link_to 'Add more', add_pet_to_customer_path(current_customer), :class => "btn btn-primary" %>
+  <%= link_to 'Continue', details_customer_path(current_customer), :class => "btn btn-success" %>
 
-<%= link_to 'Back', details_customer_path(current_customer), :class => "btn btn-primary" %>

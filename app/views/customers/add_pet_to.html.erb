@@ -1,1 +1,21 @@
+<%= simple_form_for(@pet, :html => {:class => 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
 
+<div class=well>
+  <h1>Add your pets</h1>
+  <br />
+  <div class="form-inputs">
+  	<%= f.input :name %>
+  	<%= f.input :description, as: :string %>
+  	<%= f.input :age %>
+  	<%= f.input :special_notes, as: :string %>
+  	<%= f.input :dietry_requirements, as: :string %>
+
+
+  </div>
+  	<%= f.error :base %>
+    <%= f.button :submit, "Add" %>
+  </div>
+  <% end %>
+
+</div>

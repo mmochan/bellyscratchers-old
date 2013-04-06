@@ -6,10 +6,10 @@
 
 <%= f.input :dropoff_date, as: :datepicker %><br />
 <%= f.input :pickup_date, as: :datepicker %><br />
-<%= f.input :dog_count, label: "Visitors", collection: 1..3, prompt: "How many dogs", hint: 'Please select No. of dogs'  %><br />
+<%= f.input :dog_count, label: "Attendees", collection: 1..4, prompt: "How many dogs", hint: 'Please select No. of dogs'  %><br />
 <%= f.input :pickup_required, as: :radio_buttons, hint: 'Does Fido need do be picked up? ' %><br />
 
   </div>
     <%= f.error :base %>
-    <%= f.button :submit, :class => "btn"  %>
+    <%= f.submit "Book my Hammock!", :class => "btn"  %>
 <% end %>

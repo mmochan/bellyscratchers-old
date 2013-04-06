@@ -1,42 +1,42 @@
 
+<div class='well'</div>
+  <p>
+    <b>Name:</b>
+    <%= @customer.name %>
+  </p>
 
-<p>
-  <b>Name:</b>
-  <%= @customer.name %>
-</p>
+  <p>
+    <b>Email:</b>
+    <%= @customer.email %>
+  </p>
 
-<p>
-  <b>Email:</b>
-  <%= @customer.email %>
-</p>
+  <p>
+    <b>Phone:</b>
+    <%= @customer.phone %>
+  </p>
 
-<p>
-  <b>Phone:</b>
-  <%= @customer.phone %>
-</p>
+  <p>
+    <b>Line1:</b>
+    <%= @customer.address.line1 %>
+  </p>
+  <p>
+    <b>Line2:</b>
+    <%= @customer.address.line2 %>
+  </p>
+  <p>
+    <b>City:</b>
+    <%= @customer.address.city %>
+  </p>
 
-<p>
-  <b>Line1:</b>
-  <%= @customer.address.line1 %>
-</p>
-<p>
-  <b>Line2:</b>
-  <%= @customer.address.line2 %>
-</p>
-<p>
-  <b>City:</b>
-  <%= @customer.address.city %>
-</p>
+  <p>
+    <b>State:</b>
+    <%= @customer.address.state %>
+  </p>
+  <p>
+    <b>Postcode:</b>
+    <%= @customer.address.post_code %>
+  </p>
+</div>
 
-<p>
-  <b>State:</b>
-  <%= @customer.address.state %>
-</p>
-<p>
-  <b>Postcode:</b>
-  <%= @customer.address.post_code %>
-</p>
-
-
-<%= link_to 'Edit', add_address_to_customer_path(@customer), :class => "btn btn-success" %> |
-<%= link_to 'Back', details_customer_path(@customer), :class => "btn btn-primary" %>
+<%= link_to 'Edit', add_address_to_customer_path(@customer), :class => "btn btn-success" %>
+<%= link_to 'Continue', details_customer_path(@customer), :class => "btn btn-primary" %>

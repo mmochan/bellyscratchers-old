@@ -22,18 +22,6 @@ class CustomersController < ApplicationController
     end
   end
 
-  def update_details_for
-    @customer = Customer.find(current_customer)
-    if @customer.address.nil?
-      redirect_to add_address_to_customer_path(@customer)
-    else
-      respond_to do |format|
-        format.html # index.html.erb
-        format.json { render json: @customers }
-      end
-    end
-  end
-
   # GET /customers/1
   # GET /customers/1.json
   def show
@@ -48,7 +36,7 @@ class CustomersController < ApplicationController
   # GET /customers/new
   # GET /customers/new.json
   def new
-    @customer = Customer.new
+    @customer = @Customer.new
 
     #@customer.build_address
 
@@ -56,6 +44,16 @@ class CustomersController < ApplicationController
       format.html # new.html.erb
       format.json { render json: @customer }
     end
+  end
+
+  def add_pet_to
+    @customer = Customer.find(params[:id])
+    @pet = @customer.pets.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @customer }
+    end 
   end
 
   def add_address_to
@@ -71,6 +69,7 @@ class CustomersController < ApplicationController
   # POST /customers
   # POST /customers.json
   def create
+    binding.pry
     @customer = Customer.new(params[:customer])
     respond_to do |format|
       if @customer.save
@@ -89,8 +88,13 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     respond_to do |format|
       if @customer.update_attributes(params[:customer])
-        format.html { redirect_to @customer, notice: 'Customer profile was successfully updated.' }
-        format.json { head :no_content }
+        if @customer.pets.empty?
+          format.html { redirect_to add_pet_to_customer_path, notice: 'Customer profile was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to @customer, notice: 'Customer profile was successfully updated.' }
+          format.json { head :no_content }
+        end
       else
         format.html { render action: "edit" }
         format.json { render json: @customer.errors, status: :unprocessable_entity }

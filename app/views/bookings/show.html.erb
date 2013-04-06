@@ -22,12 +22,14 @@
 </p>
 
 <% if current_customer.address == nil %>
+</div>
 <br />
 <string><p>We don't appear to have your contact details for this booking</p></string>
 <%= link_to 'Add my details', add_address_to_customer_path(current_customer), :class => "btn btn-success" %> 
 <% else %>
 
 <%= link_to 'Edit', edit_booking_path, :class => "btn btn-success" %> |
-<%= link_to 'Back', details_customer_path(current_customer), :class => "btn btn-primary" %>
-<% end %>
+<%= link_to 'Continue', details_customer_path(current_customer), :class => "btn btn-primary" %>
 </div>
+<% end %>
+
