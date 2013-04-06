@@ -28,6 +28,7 @@ gem 'thin'
 gem 'quiet_assets'
 gem 'devise'
 gem 'simple_form'
+gem 'activerecord-postgres-array'
 #gem "twitter-bootstrap-rails"
 
 group :development do

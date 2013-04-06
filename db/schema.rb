@@ -28,13 +28,13 @@ ActiveRecord::Schema.define(:version => 20130402082820) do
   add_index "addresses", ["addressable_type", "addressable_id"], :name => "index_addresses_on_addressable_type_and_addressable_id", :unique => true
 
   create_table "bookings", :force => true do |t|
-    t.date     "dropoff_date"
-    t.date     "pickup_date"
-    t.integer  "dog_count"
-    t.boolean  "pickup_required", :default => false
-    t.integer  "customer_id"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.date         "dropoff_date"
+    t.date         "pickup_date"
+    t.string_array "visitors",        :limit => 255
+    t.boolean      "pickup_required",                :default => false
+    t.integer      "customer_id"
+    t.datetime     "created_at",                                        :null => false
+    t.datetime     "updated_at",                                        :null => false
   end
 
   create_table "customers", :force => true do |t|

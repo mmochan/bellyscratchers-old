@@ -6,7 +6,8 @@
 
 <%= f.input :dropoff_date, as: :datepicker %><br />
 <%= f.input :pickup_date, as: :datepicker %><br />
-<%= f.input :dog_count, label: "Attendees", collection: 1..4, prompt: "How many dogs", hint: 'Please select No. of dogs'  %><br />
+
+<%= f.input :visitors,as: :check_boxes, collection: current_customer.pets, value_method: :name, hint: 'Whose coming?'  %><br />
 <%= f.input :pickup_required, as: :radio_buttons, hint: 'Does Fido need do be picked up? ' %><br />
 
   </div>
