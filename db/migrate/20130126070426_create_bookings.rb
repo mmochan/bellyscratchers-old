@@ -4,7 +4,7 @@ class CreateBookings < ActiveRecord::Migration
       t.date :checkin
       t.date :checkout
       t.string_array :guests
-      t.boolean :collection, :default => false
+      t.boolean :require_collection, :default => false
       t.integer :customer_id
       #t.string :bookable_type 
 
