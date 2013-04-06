@@ -1,4 +1,4 @@
-<h1>Contact details</h1>
+<h3>Contact details</h3>
 
 <table class="table table-striped table-hover table-bordered">
   <thead>
@@ -18,7 +18,7 @@
 
 </table>
 
-<h1>Address details</h1>
+<h3>Address details</h3>
 <table class="table table-striped table-hover table-bordered">
   <thead>
     <tr>
@@ -39,9 +39,9 @@
       <td><%= @customer.address.post_code%></td>            
     </tr>
   </tbody>
-
 </table>
-<h1>My Pets</h1>
+<%= link_to 'Update Address', add_address_to_customer_path, :class => "btn btn-primary"%>
+<h3>My Pets</h3>
 <table class="table table-striped table-hover table-bordered">
   <thead>
     <tr>
@@ -67,13 +67,13 @@
 <%= link_to 'Add Pet', new_customer_pet_path(current_customer), :class => "btn btn-primary"%>
 <br />
 <% unless @customer.pets.empty? %>
-	<h1>My Bookings</h1>
+	<h3>My Bookings</h3>
 	<table class="table table-striped table-hover table-bordered">
 	  <thead>
 	    <tr>
 	      <th>Drop-off date</th>
 	      <th>Pickup date</th>
-	      <th>How Many</th>
+	      <th>Visitors</th>
 	      <th>Pickup</th>                 
 	    </tr>
 	  </thead>
@@ -82,7 +82,11 @@
 	      <tr>
 	        <td><%= booking.dropoff_date %></td>
 	        <td><%= booking.pickup_date %></td>
-	        <td><%= booking.visitors %></td>
+	        <td>
+		        <% booking.visitors.each do |visitor| %>
+		       		<%= visitor unless visitor.empty?%>
+		        <% end %>
+		      </td>
 	        <td><%= booking.pickup_required %></td>         
 	      </tr>
 	    </tbody>

@@ -13,7 +13,9 @@
 
 <p>
   <b>Visitors:</b>
-  <%= @booking.visitors %>
+  <% @booking.visitors.each do |visitor| %>
+ 		<%= visitor unless visitor.empty?%>
+  <% end %>
 </p>
 
 <p>
