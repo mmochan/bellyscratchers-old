@@ -1,6 +1,6 @@
 class Reservation < ActiveRecord::Base
 	belongs_to :customer
-  attr_accessible :checkin,  :checkout, :guests, :collection_required
+  attr_accessible :checkin,  :checkout, :guests, :collection_required, :customer_id
   
   validates :guests, :presence => true
   validates :checkin, :presence => true

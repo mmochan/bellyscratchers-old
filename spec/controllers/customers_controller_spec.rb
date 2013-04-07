@@ -20,25 +20,40 @@ require 'spec_helper'
 
 describe CustomersController do
 
+
   # This should return the minimal set of attributes required to create a valid
   # Customer. As you add validations to Customer, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "name" => "MyString" }
+    { "name" => "Mike Mochan", "email" => "mmochan@mac.com", "password" => "changeit", "password_confirmation" => "changeit"}
   end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # CustomersController. Be sure to keep this updated too.
   def valid_session
-    {}
+    {"warden.user.user.key" => session["warden.user.user.key"]}
+  end
+
+  login_user
+
+  it "should have a current_customer" do
+    # note the fact that I removed the "validate_session" parameter if this was a scaffold-generated controller
+    subject.current_customer.should_not be_nil
+  end
+
+  it "should get index" do
+    # Note, rails 3.x scaffolding may add lines like get :index, {}, valid_session
+    # the valid_session overrides the devise login. Remove the valid_session from your specs
+    get 'index'
+    response.should be_success
   end
 
   describe "GET index" do
-    it "assigns all customers as @customers" do
+    it "assigns Customer.find(current_customer) to @customer" do
       customer = Customer.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:customers).should eq([customer])
+      assigns(:customer).should eq([customer])
     end
   end
 
@@ -123,7 +138,7 @@ describe CustomersController do
       it "redirects to the customer" do
         customer = Customer.create! valid_attributes
         put :update, {:id => customer.to_param, :customer => valid_attributes}, valid_session
-        response.should redirect_to(customer)
+        response.should redirect_to(add_pet_to_customer_path)
       end
     end
 
