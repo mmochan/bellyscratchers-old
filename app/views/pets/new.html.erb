@@ -6,9 +6,10 @@
       <div class="form-inputs">
       <%= f.input :name %>
       <%= f.input :description, as: :string %>
+      <%= f.input :sex, collection: [:male, :female], as: :radio_buttons %>
       <%= f.input :age %>
       <%= f.input :special_notes, as: :string %>
-      <%= f.input :dietry_requirements, as: :string %>
+      <%= f.input :dietary_requirements, as: :string %>
 
 
       </div>

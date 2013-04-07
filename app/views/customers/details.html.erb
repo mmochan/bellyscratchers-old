@@ -47,9 +47,10 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Sex</th>      
       <th>Age</th>
       <th>Special Notes</th>  
-      <th>Dietry requirements</th>                    
+      <th>Dietary requirements</th>                    
     </tr>
   </thead>
   <% @customer.pets.each do |pet| %>
@@ -57,9 +58,10 @@
       <tr>
         <td><%= pet.name %></td>
         <td><%= pet.description %></td>
+        <td><%= pet.sex %></td>        
         <td><%= pet.age %></td>
         <td><%= pet.special_notes %></td>
-        <td><%= pet.dietry_requirements %></td>           
+        <td><%= pet.dietary_requirements %></td>           
       </tr>
     </tbody>
   <% end %>
@@ -67,7 +69,7 @@
 <%= link_to 'Add Pet', new_customer_pet_path(current_customer), :class => "btn btn-primary"%>
 <br />
 <% unless @customer.pets.empty? %>
-	<h3>My Bookings</h3>
+	<h3>My reservations</h3>
 	<table class="table table-striped table-hover table-bordered">
 	  <thead>
 	    <tr>
@@ -77,20 +79,20 @@
 	      <th>Collection</th>                 
 	    </tr>
 	  </thead>
-	  <% @customer.bookings.each do |booking| %>
+	  <% @customer.reservations.each do |reservation| %>
 	    <tbody>
 	      <tr>
-	        <td><%= booking.dropoff_date %></td>
-	        <td><%= booking.pickup_date %></td>
+	        <td><%= reservation.checkin %></td>
+	        <td><%= reservation.checkout %></td>
 	        <td>
-		        <% booking.visitors.each do |visitor| %>
-		       		<%= visitor unless visitor.empty?%>
+		        <% reservation.guests.each do |guest| %>
+		       		<%= guest unless guest.empty?%>
 		        <% end %>
 		      </td>
-	        <td><%= booking.pickup_required %></td>         
+	        <td><%= reservation.collection_required %></td>         
 	      </tr>
 	    </tbody>
 	  <% end %>
 	</table>
-	<%= link_to 'New Booking', new_booking_path, :class => "btn btn-primary"%>
+	<%= link_to 'New reservation', new_reservation_path, :class => "btn btn-primary"%>
 <% end %>

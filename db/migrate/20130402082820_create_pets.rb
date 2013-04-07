@@ -3,9 +3,10 @@ class CreatePets < ActiveRecord::Migration
     create_table :pets do |t|
       t.string :name
       t.text :description
+      t.string :sex  # Should be M or F
       t.integer :age
       t.text :special_notes
-      t.text :dietry_requirements
+      t.text :dietary_requirements
       t.integer :customer_id
 
       t.timestamps

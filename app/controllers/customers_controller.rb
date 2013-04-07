@@ -69,7 +69,6 @@ class CustomersController < ApplicationController
   # POST /customers
   # POST /customers.json
   def create
-    binding.pry
     @customer = Customer.new(params[:customer])
     respond_to do |format|
       if @customer.save

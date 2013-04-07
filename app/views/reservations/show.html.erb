@@ -3,34 +3,34 @@
 
 <p>
   <b>Check-out:</b>
-  <%= @booking.dropoff_date %>
+  <%= @reservation.checkin %>
 </p>
 
 <p>
   <b>Check-in:</b>
-  <%= @booking.pickup_date %>
+  <%= @reservation.checkout %>
 </p>
 
 <p>
   <b>Guests:</b>
-  <% @booking.visitors.each do |visitor| %>
- 		<%= visitor unless visitor.empty?%>
+  <% @reservation.guests.each do |guest| %>
+ 		<%= guest unless guest.empty?%>
   <% end %>
 </p>
 
 <p>
   <b>Collection:</b>
-  <%= @booking.pickup_required %>
+  <%= @reservation.collection_required %>
 </p>
 
 <% if current_customer.address == nil %>
 </div>
 <br />
-<string><p>We don't appear to have your contact details for this booking</p></string>
+<string><p>We don't appear to have your contact details for this reservation</p></string>
 <%= link_to 'Add my details', add_address_to_customer_path(current_customer), :class => "btn btn-success" %> 
 <% else %>
 
-<%= link_to 'Edit', edit_booking_path, :class => "btn btn-success" %>
+<%= link_to 'Edit', edit_reservation_path, :class => "btn btn-success" %>
 <%= link_to 'Confirm', details_customer_path(current_customer), :class => "btn btn-primary" %>
 </div>
 <% end %>

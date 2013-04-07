@@ -27,16 +27,6 @@ ActiveRecord::Schema.define(:version => 20130402082820) do
 
   add_index "addresses", ["addressable_type", "addressable_id"], :name => "index_addresses_on_addressable_type_and_addressable_id", :unique => true
 
-  create_table "bookings", :force => true do |t|
-    t.date         "dropoff_date"
-    t.date         "pickup_date"
-    t.string_array "visitors",        :limit => 255
-    t.boolean      "pickup_required",                :default => false
-    t.integer      "customer_id"
-    t.datetime     "created_at",                                        :null => false
-    t.datetime     "updated_at",                                        :null => false
-  end
-
   create_table "customers", :force => true do |t|
     t.string   "name"
     t.string   "phone"
@@ -60,12 +50,23 @@ ActiveRecord::Schema.define(:version => 20130402082820) do
   create_table "pets", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.string   "sex"
     t.integer  "age"
     t.text     "special_notes"
-    t.text     "dietry_requirements"
+    t.text     "dietary_requirements"
     t.integer  "customer_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  create_table "reservations", :force => true do |t|
+    t.date         "checkin"
+    t.date         "checkout"
+    t.string_array "guests",              :limit => 255
+    t.string       "collection_required"
+    t.integer      "customer_id"
+    t.datetime     "created_at",                         :null => false
+    t.datetime     "updated_at",                         :null => false
   end
 
 end

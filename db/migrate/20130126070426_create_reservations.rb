@@ -1,10 +1,10 @@
-class CreateBookings < ActiveRecord::Migration
+class CreateReservations < ActiveRecord::Migration
   def change
-    create_table :bookings do |t|
+    create_table :reservations do |t|
       t.date :checkin
       t.date :checkout
       t.string_array :guests
-      t.boolean :require_collection, :default => false
+      t.string :collection_required
       t.integer :customer_id
       #t.string :bookable_type 
 

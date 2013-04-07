@@ -1,0 +1,16 @@
+<%= simple_form_for( @reservation, :html => {:class => 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+
+<%= f.input :checkin, label: "Check-in", as: :datepicker %><br />
+<%= f.input :checkout, label: "Check-out", as: :datepicker %><br />
+
+<%= f.input :guests, label: "Guests", as: :check_boxes, collection: current_customer.pets, value_method: :name, include_blank: "Test" %><br />
+<%= f.input :collection_required, label: "Collection", collection: [:yes, :no], as: :radio_buttons, hint: 'Does Fido need do be picked up? ' %><br />
+
+  </div>
+    <%= f.error :base %>
+    <%= f.submit "Save", :class => "btn btn-primary"  %>
+<% end %>

@@ -16,7 +16,7 @@ Bellyscratchers::Application.routes.draw do
   resources :pets
 
 
-  resources :bookings
+  resources :reservations
 
   get "pages/index" => 'pages#index', as: :pages
 
