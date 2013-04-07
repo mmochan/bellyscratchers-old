@@ -2,8 +2,8 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customer = Customer.all
-    # @customer = Customer.find(current_customer)
+    #@customer = Customer.all
+    @customer = Customer.find(current_customer)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -38,6 +38,7 @@ class CustomersController < ApplicationController
   # GET /customers/new.json
   def new
     @customer = Customer.new
+    @customer.build_address
 
     #@customer.build_address
 

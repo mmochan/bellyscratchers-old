@@ -19,5 +19,9 @@ class Customer < ActiveRecord::Base
  # validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }  
 #	validates :phone, :presence =>true	
 
-
+  def with_address
+    customer = current_customer
+    customer.build_address
+    customer
+  end
 end
