@@ -26,7 +26,7 @@ class ReservationsController < ApplicationController
   # GET /Reservations/new.json
   def new
     if current_customer.pets.empty?
-      redirect_to  add_pet_to_customer_path(current_customer)
+      redirect_to  new_customer_pet_path(current_customer)
     else
       @reservation = Reservation.new
       respond_to do |format|

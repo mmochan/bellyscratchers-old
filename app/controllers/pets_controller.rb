@@ -11,10 +11,11 @@ class PetsController < ApplicationController
   end
 
   def show
-    @pet = Pet.find(params[:id])
+    @customer = current_customer
+    @pet = @customer.pets.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html #show.html
       format.json { render json: @pet }
     end
   end  
@@ -24,7 +25,7 @@ class PetsController < ApplicationController
     @pet = @customer.pets.new(params[:pet])
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to @pet, notice: 'pet successfully created.' }
+        format.html { redirect_to customer_pet_path(@customer, @pet), notice: 'pet successfully created.' }
         format.json { render json: @pet, status: :created, location: @pet }
       else
         format.html { render action: "new" }

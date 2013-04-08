@@ -4,18 +4,14 @@ Bellyscratchers::Application.routes.draw do
 
   resources :customers do 
     resources :pets
-    member do 
-      get 'add_address_to'
-      get 'add_pet_to'      
+    resources :addresses
+    member do   
       get 'details'
     end
     collection do 
       get 'update_details_for'
     end
   end
-  resources :pets
-
-
   resources :reservations
 
   get "pages/index" => 'pages#index', as: :pages

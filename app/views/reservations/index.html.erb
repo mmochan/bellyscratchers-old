@@ -19,7 +19,11 @@
     <tr>
       <td><%= reservation.checkin %></td>
       <td><%= reservation.checkout %></td>
-      <td><%= reservation.guests %></td>
+      <td>
+        <% reservation.guests.each do |guest| %>
+          <%= guest unless guest.empty?%>
+        <% end %>
+      </td>
       <td><%= reservation.collection_required %></td>    
       <td><%= link_to 'Show', reservation %></td>
       <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>

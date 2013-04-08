@@ -1,0 +1,7 @@
+PostgreSQL setup
+sudo -u postgres createuser bellyscratchers
+sudo -u postgres psql
+postgres=# \password bellyscratchers
+postgres=# create database bellyscratchers_development;
+CREATE DATABASE
+postgres=# grant all privileges on database bellyscratchers_development to bellyscratchers;

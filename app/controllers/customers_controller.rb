@@ -12,9 +12,11 @@ class CustomersController < ApplicationController
   end
 
   def details
+    #Need some smart way to check if the customer address has been filled in
+
     @customer = Customer.find(current_customer)
-    if @customer.address.nil?
-      redirect_to add_address_to_customer_path(@customer)
+    if @customer.addresses.empty?
+      redirect_to new_customer_address_path(@customer)
     else
       respond_to do |format|
         format.html # index.html.erb
@@ -38,7 +40,6 @@ class CustomersController < ApplicationController
   # GET /customers/new.json
   def new
     @customer = Customer.new
-    @customer.build_address
 
     #@customer.build_address
 
@@ -51,26 +52,6 @@ class CustomersController < ApplicationController
   def edit
     @customer = Customer.find(params[:id])
   end
-
-  def add_pet_to
-    @customer = Customer.find(params[:id])
-    @pet = @customer.pets.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @customer }
-    end 
-  end
-
-  def add_address_to
-    @customer = Customer.find(params[:id])
-    @customer.build_address
-    
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @customer }
-    end    
-  end  
   
   # POST /customers
   # POST /customers.json

@@ -23,11 +23,11 @@
   <%= @reservation.collection_required %>
 </p>
 
-<% if current_customer.address == nil %>
+<% if current_customer.addresses.empty? %>
 </div>
 <br />
 <string><p>We don't appear to have your contact details for this reservation</p></string>
-<%= link_to 'Add my details', add_address_to_customer_path(current_customer), :class => "btn btn-success" %> 
+<%= link_to 'Add my details', new_customer_address_path(current_customer), :class => "btn btn-success" %> 
 <% else %>
 
 <%= link_to 'Edit', edit_reservation_path, :class => "btn btn-success" %>

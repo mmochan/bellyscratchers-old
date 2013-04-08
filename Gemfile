@@ -33,6 +33,7 @@ gem 'activerecord-postgres-array'
 
 group :development do
   gem 'irbtools'
+  gem 'rails-footnotes', '>= 3.7.9'
   gem 'pry'
   gem 'guard-rspec'
   gem 'growl'

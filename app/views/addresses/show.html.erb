@@ -1,0 +1,29 @@
+<div class='well'>
+  <p>
+    <b>Address Line 1:</b>
+    <%= @address.line1 %>
+  </p>
+
+  <p>
+    <b>Address Line 2:</b>
+    <%= @address.line2 %>
+  </p>
+
+  <p>
+    <b>Suburb:</b>
+    <%= @address.suburb %>
+  </p>
+
+  <p>
+    <b>State:</b>
+    <%= @address.state %>
+  </p>
+
+  <p>
+    <b>Post Code:</b>
+    <%= @address.post_code %>
+  </p>
+
+
+</div>
+ <%= link_to 'Continue', details_customer_path(current_customer), :class => "btn btn-success" %>

@@ -7,11 +7,11 @@ class Customer < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-	has_one :address, :as => :addressable, :dependent => :destroy
+	has_many :addresses, :dependent => :destroy
 	has_many :reservations, :dependent => :destroy    #, :as => :reservable
   has_many :pets, :dependent => :destroy
 
-	accepts_nested_attributes_for :address
+	#accepts_nested_attributes_for :address
 
   attr_accessible  :name, :email, :phone, :address_attributes
 
@@ -19,9 +19,4 @@ class Customer < ActiveRecord::Base
  # validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }  
 #	validates :phone, :presence =>true	
 
-  def with_address
-    customer = current_customer
-    customer.build_address
-    customer
-  end
 end
