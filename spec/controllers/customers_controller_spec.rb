@@ -19,13 +19,11 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe CustomersController do
-
-
   # This should return the minimal set of attributes required to create a valid
   # Customer. As you add validations to Customer, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "name" => "Mike Mochan", "email" => "mmochan@mac.com", "password" => "changeit", "password_confirmation" => "changeit"}
+    { "name" => "Mike Smith", "email" => "mmochan@mac.com", "password" => "changeit", "password_confirmation" => "changeit"}
   end
 
   # This should return the minimal set of values that should be in the session
@@ -34,7 +32,7 @@ describe CustomersController do
   def valid_session
     {"warden.user.user.key" => session["warden.user.user.key"]}
   end
-
+  
   login_user
 
   it "should have a current_customer" do
@@ -52,7 +50,8 @@ describe CustomersController do
   describe "GET index" do
     it "assigns Customer.find(current_customer) to @customer" do
       customer = Customer.create! valid_attributes
-      get :index, {}, valid_session
+      #customer.find(valid_attributes[name])
+      get :index, {}
       assigns(:customer).should eq([customer])
     end
   end
@@ -138,7 +137,7 @@ describe CustomersController do
       it "redirects to the customer" do
         customer = Customer.create! valid_attributes
         put :update, {:id => customer.to_param, :customer => valid_attributes}, valid_session
-        response.should redirect_to(add_pet_to_customer_path)
+        response.should redirect_to(customer)
       end
     end
 

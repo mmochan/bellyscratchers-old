@@ -6,11 +6,11 @@ class Reservation < ActiveRecord::Base
   validates :checkin, :presence => true
   validates :checkout, :presence => true
 
-  validate :dropoff_is_before_pickup, :back_in_time, :one_day_notice, :too_long
+  validate :checkout_is_before_checkin,  :back_in_time, :one_day_notice, :too_long
   validate :dogs
 
-  def dropoff_is_before_pickup
-  	errors.add(:checkin, "Can't drop em off before we pick em up") unless self.checkin < self.checkout	
+  def checkout_is_before_checkin
+  	errors.add(:checkin, "Can't drop em off before we pick em up") unless self.checkin < self.checkout
   end
 
   def back_in_time

@@ -10,7 +10,7 @@ require 'spec_helper'
 #     end
 #   end
 # end
-describe BookingsHelper do
+describe ReservationsHelper do
  it "TBD" do
  end
 end

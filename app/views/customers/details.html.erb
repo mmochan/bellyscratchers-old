@@ -1,7 +1,7 @@
 <div class='well'>
 <h3>Contact details</h3> 
 
-<table class="table table-striped table-hover table-bordered">
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,19 +16,18 @@
       <td><%= @customer.name%></td>
       <td><%= @customer.phone%></td>
       <td><%= @customer.email%></td>
-      <td><%= link_to 'Edit', edit_customer_path, :class => "btn btn-success"  %></td>
-      <td><%= link_to 'Delete', edit_customer_path(@customer), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-warning" %></td>         
+      <td><%= link_to 'Edit', edit_customer_path, :class => "btn-small btn-info"  %></td>
+      <td><%= link_to 'Delete', edit_customer_path(@customer), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn-small btn-danger" %></td>         
     </tr>
   </tbody>
-
 </table>
-<%= link_to 'Update My details', edit_customer_path, :class => "btn btn-primary"%>
+<%= link_to 'Update My details', edit_customer_path, :class => "btn-small btn-primary"%>
 <h3>Address details</h3>
-<table class="table table-striped table-hover table-bordered">
+<table class="table">
   <thead>
     <tr>
-      <th>Line 1</th>
-      <th>Line 2</th>
+      <th>Address Line 1</th>
+      <th>Address Line 2</th>
       <th>Suburb</th>
       <th>State</th>
       <th>Postcode</th>    
@@ -45,15 +44,15 @@
         <td><%= address.suburb%></td>
         <td><%= address.state%></td>
         <td><%= address.post_code%></td>     
-        <td><%= link_to 'Edit', edit_customer_address_path(address), :class => "btn btn-success"  %></td>
-        <td><%= link_to 'Delete', customer_address_path(@customer), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-warning" %></td>   
+        <td><%= link_to 'Edit', edit_customer_address_path(address), :class => "btn-small btn-info"  %></td>
+        <td><%= link_to 'Delete', customer_address_path(@customer), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn-small btn-danger" %></td>   
       </tr>
     <% end %>  
   </tbody>
 </table>
-<%= link_to 'Add Address', new_customer_address_path(@customer, @address), :class => "btn btn-primary"%>
+<%= link_to 'Add Address', new_customer_address_path(@customer, @address), :class => "btn-small btn-primary"%>
 <h3>My Pets</h3>
-<table class="table table-striped table-hover table-bordered">
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -75,19 +74,19 @@
         <td><%= pet.age %></td>
         <td><%= pet.special_notes %></td>
         <td><%= pet.dietary_requirements %></td>       
-        <td><%= link_to 'Edit', edit_customer_pet_path(pet), :class => "btn btn-success"  %></td>
-        <td><%= link_to 'Delete', customer_pet_path(@customer), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-warning" %></td>        
+        <td><%= link_to 'Edit', edit_customer_pet_path(pet), :class => "btn-small btn-info"  %></td>
+        <td><%= link_to 'Delete', customer_pet_path(@customer), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn-small btn-danger" %></td>     
       </tr>
     </tbody>
   <% end %>
 </table>
-<%= link_to 'Add Pet', new_customer_pet_path(current_customer), :class => "btn btn-primary"%>
+<%= link_to 'Add Pet', new_customer_pet_path(current_customer), :class => "btn-small btn-primary"%>
 <br />
 <% unless @customer.pets.empty? %>
 	<h3>My reservations</h3>
-	<table class="table table-striped table-hover table-bordered">
+	<table class="table">
 	  <thead>
-	    <tr>
+	    <tr class='success'>
 	      <th>Check-in</th>
 	      <th>Check-out</th>
 	      <th>Guests</th>
@@ -107,13 +106,13 @@
 		        <% end %>
 		      </td>
 	        <td><%= reservation.collection_required %></td>         
-          <td><%= link_to 'Edit', edit_reservation_path(reservation), :class => "btn btn-success"  %></td>
-          <td><%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-warning" %></td>
+          <td><%= link_to 'Edit', edit_reservation_path(reservation), :class => "btn-small btn-info"  %></td>
+          <td><%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn-small btn-danger" %></td>
         </tr>
 	    </tbody>
 	  <% end %>
 	</table>
-	<%= link_to 'New reservation', new_reservation_path, :class => "btn btn-primary"%>
+  <%= link_to 'New reservation', new_reservation_path, :class => "btn-small btn-primary" %>
 <% end %>
 
 </div>

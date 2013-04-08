@@ -75,7 +75,7 @@ class CustomersController < ApplicationController
     respond_to do |format|
       if @customer.update_attributes(params[:customer])
         if @customer.pets.empty?
-          format.html { redirect_to add_pet_to_customer_path, notice: 'Customer profile was successfully updated.' }
+          format.html { redirect_to @customer, notice: 'Customer profile was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { redirect_to @customer, notice: 'Customer profile was successfully updated.' }

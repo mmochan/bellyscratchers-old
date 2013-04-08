@@ -8,7 +8,7 @@
 	 end 
 	 factory :reservation do
 		 checkin                2013-04-23
-		 checkout								2013-04-27
+		 checkout								2013-04-30
 		 guests              		["Harley", "Ernie"]
 		 collection_required 		1
 	 end 		

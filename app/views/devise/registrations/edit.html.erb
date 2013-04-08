@@ -8,10 +8,6 @@
     <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
     <%= f.input :password_confirmation, :required => false %>
     <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
-
-    <%= f.simple_fields_for :address do |address| %>
-      <%= render :partial => 'shared/address', :locals => {:f => address} %>
-    <% end %>
   </div>
 
   <div class="form-actions">
