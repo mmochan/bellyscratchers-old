@@ -1,23 +1,24 @@
 require 'spec_helper'
 
-describe "bookings/show" do
+
+describe "reservations/show" do
   before(:each) do
-    @booking = assign(:booking, stub_model(Booking,
-      :name => "Name",
-      :address => "MyText",
-      :contact_number => "Contact Number",
-      :email => "Email",
-      :dog_count => "Dog Count"
+    @reservation = assign(:reservation, stub_model(Reservation,
+      :checkin => "2013-04-23",
+      :checkout => "2013-04-30",
+      :guests => ["Harley", "Eric"],
+      :collection_required => 'Yes',
+
     ))
   end
 
   it "renders attributes in <p>" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/Name/)
-    rendered.should match(/MyText/)
-    rendered.should match(/Contact Number/)
-    rendered.should match(/Email/)
-    rendered.should match(/Dog Count/)
+    rendered.should match(/2013-04-23/)
+    rendered.should match(/2013-04-30/)
+    rendered.should match(/0411815602/)
+    rendered.should match(/Yes/)
+
   end
 end

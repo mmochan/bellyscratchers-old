@@ -1,26 +1,25 @@
 require 'spec_helper'
 
-describe "bookings/index" do
+describe "reservations/index" do
   before(:each) do
-    assign(:bookings, [
-      stub_model(Booking,
-        :name => "Name",
-        :address => "MyText",
-        :contact_number => "Contact Number",
-        :email => "Email",
-        :dog_count => "Dog Count"
+    assign(:reservations, [
+      stub_model(Reservation,
+        :checkin => "Name",
+        :checkout => "MyText",
+        :guests => ["Harley", "Eric"],
+        :collection_required => "Y",
+      
       ),
-      stub_model(Booking,
-        :name => "Name",
-        :address => "MyText",
-        :contact_number => "Contact Number",
-        :email => "Email",
-        :dog_count => "Dog Count"
+      stub_model(Reservation,
+        :checkin => "Name",
+        :checkout => "MyText",
+        :guests => ["Harley", "Eric"],
+        :collection_required => "Y",
       )
     ])
   end
 
-  it "renders a list of bookings" do
+  it "renders a list of reservations" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Name".to_s, :count => 2

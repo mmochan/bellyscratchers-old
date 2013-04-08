@@ -1,29 +1,25 @@
 <div class='well'>
 <h3>Contact details</h3> 
 
-<table class="table">
+<table class="table table-bordered ">
   <thead>
     <tr>
       <th>Name</th>
       <th>Phone</th>
-      <th>Email</th>
-      <th></th>
-      <th></th>        
+      <th>Email</th>     
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><%= @customer.name%></td>
       <td><%= @customer.phone%></td>
-      <td><%= @customer.email%></td>
-      <td><%= link_to 'Edit', edit_customer_path, :class => "btn-small btn-info"  %></td>
-      <td><%= link_to 'Delete', edit_customer_path(@customer), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn-small btn-danger" %></td>         
+      <td><%= @customer.email%></td>      
     </tr>
   </tbody>
 </table>
 <%= link_to 'Update My details', edit_customer_path, :class => "btn-small btn-primary"%>
 <h3>Address details</h3>
-<table class="table">
+<table class="table table-bordered ">
   <thead>
     <tr>
       <th>Address Line 1</th>
@@ -31,8 +27,6 @@
       <th>Suburb</th>
       <th>State</th>
       <th>Postcode</th>    
-      <th></th>
-      <th></th>  
     </tr>
   </thead>
 
@@ -44,15 +38,13 @@
         <td><%= address.suburb%></td>
         <td><%= address.state%></td>
         <td><%= address.post_code%></td>     
-        <td><%= link_to 'Edit', edit_customer_address_path(address), :class => "btn-small btn-info"  %></td>
-        <td><%= link_to 'Delete', customer_address_path(@customer), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn-small btn-danger" %></td>   
       </tr>
     <% end %>  
   </tbody>
 </table>
 <%= link_to 'Add Address', new_customer_address_path(@customer, @address), :class => "btn-small btn-primary"%>
 <h3>My Pets</h3>
-<table class="table">
+<table class="table table-bordered ">
   <thead>
     <tr>
       <th>Name</th>
@@ -60,9 +52,7 @@
       <th>Sex</th>      
       <th>Age</th>
       <th>Special Notes</th>  
-      <th>Dietary requirements</th>     
-      <th></th>
-      <th></th>                       
+      <th>Dietary requirements</th>                          
     </tr>
   </thead>
   <% @customer.pets.each do |pet| %>
@@ -73,9 +63,7 @@
         <td><%= pet.sex %></td>        
         <td><%= pet.age %></td>
         <td><%= pet.special_notes %></td>
-        <td><%= pet.dietary_requirements %></td>       
-        <td><%= link_to 'Edit', edit_customer_pet_path(pet), :class => "btn-small btn-info"  %></td>
-        <td><%= link_to 'Delete', customer_pet_path(@customer), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn-small btn-danger" %></td>     
+        <td><%= pet.dietary_requirements %></td>        
       </tr>
     </tbody>
   <% end %>
@@ -84,15 +72,13 @@
 <br />
 <% unless @customer.pets.empty? %>
 	<h3>My reservations</h3>
-	<table class="table">
+	<table class="table table-bordered ">
 	  <thead>
 	    <tr class='success'>
 	      <th>Check-in</th>
 	      <th>Check-out</th>
 	      <th>Guests</th>
-	      <th>Collection</th>   
-        <th></th>
-        <th></th>              
+	      <th>Collection</th>               
 	    </tr>
 	  </thead>
 	  <% @customer.reservations.each do |reservation| %>
@@ -106,8 +92,6 @@
 		        <% end %>
 		      </td>
 	        <td><%= reservation.collection_required %></td>         
-          <td><%= link_to 'Edit', edit_reservation_path(reservation), :class => "btn-small btn-info"  %></td>
-          <td><%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn-small btn-danger" %></td>
         </tr>
 	    </tbody>
 	  <% end %>
